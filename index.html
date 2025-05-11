@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SWA BUANA LOGISTICS</title>
 
-    <!-- Favicon -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,17 +16,102 @@
       rel="stylesheet"
     />
 
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              oswald: ['Oswald', 'sans-serif'],
+              rubik: ['Rubik', 'sans-serif'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#1e3a8a',
+                light: '#3b82f6',
+                dark: '#1e40af',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
   </head>
 
-  <body id="top">
+  <body class="font-rubik bg-white text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-primary text-white shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3 mb-3 md:mb-0">
+          <img
+            src="WhatsApp Image 2025-05-05 at 12.15.21_2d1971d1.jpg"
+            alt="SWA Buana Logistics"
+            class="h-10 w-auto hover:scale-110 transition"
+          />
+          <span class="text-xl font-oswald font-bold uppercase tracking-wider hover:text-blue-300 transition">
+            SWA BUANA LOGISTICS
+          </span>
+        </div>
 
-<!-- Header -->
+        <!-- Centered Navbar -->
+        <nav class="flex flex-col md:flex-row md:space-x-6 text-sm font-medium items-center">
+          <a href="#layanan" class="hover:text-blue-300 transition">Layanan</a>
 
+          <!-- Dropdown -->
+          <div class="relative group">
+            <button class="hover:text-blue-300 transition flex items-center">
+              Perusahaan
+              <ion-icon name="chevron-down-outline" class="ml-1 text-base"></ion-icon>
+            </button>
+            <div
+              class="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white text-gray-800 shadow-md rounded-md hidden group-hover:block min-w-[180px] z-10"
+            >
+              <a href="#tentang" class="block px-4 py-2 hover:bg-gray-100 hover:text-primary transition"
+                >Tentang Perusahaan</a
+              >
+              <a href="#bantuan" class="block px-4 py-2 hover:bg-gray-100 hover:text-primary transition"
+                >Bantuan Kami</a
+              >
+            </div>
+          </div>
 
-    <!-- JS -->
-    <script src="script.js" defer></script>
+          <a href="#lokasi" class="hover:text-blue-300 transition">Lokasi</a>
+          <a href="#karir" class="hover:text-blue-300 transition">Karir</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- Icons -->
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-oswald font-bold mb-4">
+          Solusi Pengiriman Cepat & Aman
+        </h1>
+        <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
+          SWA Buana Logistics menghadirkan layanan ekspedisi profesional untuk kebutuhan bisnis maupun pribadi Anda.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#tracking"
+            class="bg-white text-primary font-semibold px-6 py-3 rounded-full hover:bg-blue-100 transition duration-300"
+            >Lacak Kiriman</a
+          >
+          <a
+            href="#kontak"
+            class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-primary transition duration-300"
+            >Hubungi Kami</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Ionicons -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -37,7 +120,5 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-
   </body>
-
 </html>
