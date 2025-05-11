@@ -36,6 +36,7 @@
         },
       };
     </script>
+
     <style>
       [x-cloak] {
         display: none !important;
@@ -58,17 +59,19 @@
           />
         </div>
 
-        <!-- Centered Navbar -->
+        <!-- Navigation -->
         <nav
-          class="flex flex-col md:flex-row md:space-x-6 text-sm font-medium items-center"
+          class="flex flex-col md:flex-row md:space-x-6 text-sm font-medium items-center relative"
         >
           <a href="#layanan" class="hover:text-primary-dark transition"
             >Layanan</a
           >
 
-          <!-- Dropdown -->
-          <div class="relative group">
+          <!-- Dropdown Perusahaan -->
+          <div class="relative">
             <button
+              onclick="toggleDropdown()"
+              id="dropdownToggle"
               class="hover:text-primary-dark transition flex items-center"
             >
               Perusahaan
@@ -78,7 +81,8 @@
               ></ion-icon>
             </button>
             <div
-              class="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white text-primary shadow-md rounded-md hidden group-hover:block min-w-[180px] z-10"
+              id="dropdownMenu"
+              class="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white text-primary shadow-md rounded-md min-w-[180px] z-10 hidden"
             >
               <a
                 href="#tentang"
@@ -101,32 +105,111 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Full Banner Image -->
     <section
-      class="bg-gradient-to-r from-primary to-primary-dark text-white py-20"
+      class="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden"
     >
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-oswald font-bold mb-4">
-          Solusi Pengiriman Cepat & Aman
-        </h1>
-        <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
-          SWA Buana Logistics menghadirkan layanan ekspedisi profesional untuk
-          kebutuhan bisnis maupun pribadi Anda.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a
-            href="#tracking"
-            class="bg-white text-primary font-semibold px-6 py-3 rounded-full hover:bg-blue-100 transition duration-300"
-            >Lacak Kiriman</a
-          >
-          <a
-            href="#kontak"
-            class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-primary transition duration-300"
-            >Hubungi Kami</a
-          >
+      <img
+        src="Assets/banner-iklan.jpg"
+        alt="Iklan SWA Buana Logistics"
+        class="w-full h-full object-cover object-center"
+      />
+      <div
+        class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center"
+      >
+        <div class="text-center text-white px-4">
+          <h1 class="text-3xl md:text-5xl font-oswald font-bold mb-2">
+            Kirim Barang Mudah & Cepat
+          </h1>
+          <p class="text-lg md:text-xl font-rubik">
+            Layanan logistik terpercaya untuk seluruh Indonesia.
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- Section: Cek Resi -->
+    <section id="cek-resi" class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6 text-center"
+        >
+          <h2 class="text-2xl font-bold text-primary mb-4">
+            Cek Resi Pengiriman
+          </h2>
+          <p class="mb-6 text-gray-600">
+            Masukkan nomor resi untuk mengetahui status pengiriman Anda.
+          </p>
+          <form>
+            <input
+              type="text"
+              placeholder="Masukkan Nomor Resi"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary mb-4"
+            />
+            <button
+              type="submit"
+              class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition"
+            >
+              Lacak Sekarang
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Cek Ongkir -->
+    <section id="cek-ongkir" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-xl mx-auto bg-gray-50 shadow-lg rounded-lg p-6">
+          <h2 class="text-2xl font-bold text-primary mb-4 text-center">
+            Cek Ongkir
+          </h2>
+          <p class="text-center text-gray-600 mb-6">
+            Hitung estimasi biaya pengiriman Anda dengan cepat.
+          </p>
+          <form class="space-y-4">
+            <input
+              type="text"
+              placeholder="Kota Asal"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <input
+              type="text"
+              placeholder="Kota Tujuan"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <input
+              type="number"
+              placeholder="Berat (gram)"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <button
+              type="submit"
+              class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition"
+            >
+              Hitung Ongkir
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dropdown Script -->
+    <script>
+      function toggleDropdown() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Tutup dropdown saat klik di luar
+      document.addEventListener("click", function (e) {
+        const toggle = document.getElementById("dropdownToggle");
+        const menu = document.getElementById("dropdownMenu");
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add("hidden");
+        }
+      });
+    </script>
 
     <!-- Ionicons -->
     <script
